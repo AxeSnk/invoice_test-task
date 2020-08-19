@@ -1,0 +1,103 @@
+.MenuToggle {
+  position: fixed;
+  top: 40px;
+  left: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #fff;
+  transition: opacity, left 0.22s ease-in;
+  z-index: 100;
+}
+
+.MenuToggle:hover {
+  opacity: 0.7;
+}
+.open {
+  left: 270px;
+}
+.cross {
+  display: inline-block !important;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background: rgba(0, 0, 0, 0);
+  box-sizing: content-box;
+}
+.cross:before {
+  position: absolute;
+  content: '';
+  margin: auto;
+  width: calc(30px / 8);
+  height: calc(30px);
+  background-color: #666666;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: rotate(45deg);
+}
+.cross:after {
+  position: absolute;
+  content: '';
+  margin: auto;
+  width: calc(30px);
+  height: calc(30px / 8);
+  background-color: #666666;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: rotate(45deg);
+}
+
+.burger {
+  display: inline-block !important;
+  position: relative;
+  width: 30px;
+  height: calc(30px / 2);
+  background: rgba(0, 0, 0, 0);
+  border: none;
+  border-top: calc(30px / 6) solid #666666;
+  border-bottom: calc(30px / 6) solid #666666;
+  box-sizing: content-box;
+}
+.burger:before {
+  position: absolute;
+  content: '';
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 30px;
+  height: calc(30px / 6);
+  background-color: #666666;
+  box-sizing: content-box;
+}
+// .Button:focus {
+//   outline: none;
+// }
+
+// .Button:active {
+//   box-shadow: inset 2px 2px 1px rgba(0, 0, 0, 0.3);
+// }
+
+// .Button:disabled {
+//   background: #ccc;
+//   color: #000;
+//   cursor: not-allowed;
+// }
+
+// .error {
+//   background: rgba(240, 87, 108, 1);
+// }
+
+// .success {
+//   background: rgba(161, 240, 69, 1);
+// }
+
+// .primary {
+//   background: #2884f6;
+//   color: #fff;
+// }

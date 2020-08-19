@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Sidebar from './components/Navigation/Sidebar';
+import { Buyers } from './pages/Buyers';
+import { Terminals } from './pages/Terminals';
+import { Login } from './pages/Login';
+import MenuToggle from './components/Navigation/MenuToggle';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    menu: false,
+  };
+
+  toggleMenuHandler = () => {
+    this.setState({
+      menu: !this.state.menu,
+    });
+  };
+
+  menuCloseHandler = () => {
+    this.setState({
+      menu: false
+    })
+  }
+
+  render() {
+    return (
+      <BrowserRouter>
+        <MenuToggle
+          onToggle={this.toggleMenuHandler}
+          isOpen={this.state.menu}
+        />
+        <Sidebar isOpen={this.state.menu} onClose={this.menuCloseHandler} />
+        <Switch>
+          {/* <Route path="/" exact component={Login} /> */}
+          <Route path="/terminals" component={Terminals} />
+          <Route path="/buyers" component={Buyers} />
+        </Switch>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;

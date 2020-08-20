@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useContext } from 'react';
 import Button from '../../components/UI/Button/Button';
 import Input from '../../components/UI/Input/Input';
 import classes from './Login.module.scss';
@@ -23,7 +23,7 @@ export default class Login extends Component {
         value: '',
         type: 'password',
         label: 'Password',
-        errorMessage: 'Введите корректный пароль',
+        errorMessage: 'Пароль должен быть не менее 8 символов',
         valid: false,
         touched: false,
         validation: {
@@ -42,45 +42,45 @@ export default class Login extends Component {
 
   validateControl(value, validation) {
     if (!validation) {
-      return true
+      return true;
     }
 
-    let isValid = true
+    let isValid = true;
 
     if (validation.required) {
-      isValid = value.trim() !== '' && isValid 
+      isValid = value.trim() !== '' && isValid;
     }
 
     if (validation.login) {
-
     }
 
     if (validation.minLength) {
-      isValid =  value.length >= validation.minLength && isValid
+      isValid = value.length >= validation.minLength && isValid;
     }
 
-    return isValid
+    return isValid;
   }
 
   onChangeHandler = (e, controlName) => {
     const formControls = { ...this.state.formControls };
     const control = { ...formControls[controlName] };
 
-    control.value = e.target.value
-    control.touched = true
-    control.valid = this.validateControl(control.value, control.validation)
+    control.value = e.target.value;
+    control.touched = true;
+    control.valid = this.validateControl(control.value, control.validation);
 
-    formControls[controlName] = control
+    formControls[controlName] = control;
 
-    let isFormValid = true
+    let isFormValid = true;
 
-    Object.keys(formControls).forEach(name => {
-      isFormValid = formControls[name].valid && isFormValid
-    })
+    Object.keys(formControls).forEach((name) => {
+      isFormValid = formControls[name].valid && isFormValid;
+    });
 
     this.setState({
-      formControls, isFormValid
-    })
+      formControls,
+      isFormValid,
+    });
   };
 
   renderInputs() {
@@ -111,7 +111,7 @@ export default class Login extends Component {
             {this.renderInputs()}
             <Button
               type="success"
-              onClick={this.loginHandler}
+              onClick={this.props.onClick}
               disabled={!this.state.isFormValid}
               className={classes.Btn}
             >

@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Sidebar from './components/Navigation/Sidebar';
 import { Buyers } from './pages/Buyers';
 import { Terminals } from './pages/Terminals';
-import { Login } from './pages/Login';
+import Login from './pages/Login/Login';
 import MenuToggle from './components/Navigation/MenuToggle';
 
 class App extends Component {
@@ -26,16 +26,16 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <MenuToggle
+        <Login />
+        {/* <MenuToggle
           onToggle={this.toggleMenuHandler}
           isOpen={this.state.menu}
         />
         <Sidebar isOpen={this.state.menu} onClose={this.menuCloseHandler} />
         <Switch>
-          {/* <Route path="/" exact component={Login} /> */}
           <Route path="/terminals" component={Terminals} />
           <Route path="/buyers" component={Buyers} />
-        </Switch>
+        </Switch> */}
       </BrowserRouter>
     );
   }

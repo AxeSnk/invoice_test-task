@@ -22,9 +22,9 @@ class Sidebar extends Component {
           </div>
           <ul className="sidebar-nav list-unstyled components">
             <li className="nav-item">
-              <NavLink exact to="/terminals" className="nav-link">
+              <Link exact to="/terminals" className="nav-link">
                 Терминалы
-              </NavLink>
+              </Link>
             </li>
             <li className="nav-item">
               <NavLink to="/buyers" className="nav-link">
